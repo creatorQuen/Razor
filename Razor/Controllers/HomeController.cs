@@ -9,26 +9,28 @@ namespace Razor.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
-        {
-            Product myProduct = new Product
-            {
-                ProductID = 1,
-                Name = "Kayak",
-                Description = "A boat for one person",
-                Category = "Watersport",
-                Price = 275M,
+        //public ViewResult Index()
+        //{
+        //    Product myProduct = new Product
+        //    {
+        //        ProductID = 1,
+        //        Name = "Kayak",
+        //        Description = "A boat for one person",
+        //        Category = "Watersport",
+        //        Price = 275M,
+        //    };
+        //    return View(myProduct);
+        //}
 
+        public IActionResult Index()
+        {
+            Product[] array = {
+                new Product {Name = "Kayak" , Price = 275M},
+                new Product {Name = "Lifejacket" , Price = 48.95M},
+                new Product {Name = "Soccer ball" , Price = 19.50M},
+                new Product {Name = "Corner flag" , Price = 34.95M},
             };
-            Product myProduct1 = new Product
-            {
-                ProductID = 2,
-                Name = "Giga",
-                Description = "A video game",
-                Category = "Games",
-                Price = 17M
-            };
-            return View(myProduct);
+            return View(array);
         }
     }
 }
